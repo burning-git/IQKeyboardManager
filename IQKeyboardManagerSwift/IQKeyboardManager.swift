@@ -807,7 +807,7 @@ public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
     /** To save keyboardWillShowNotification. Needed for enable keyboard functionality. */
     private var         _kbShowNotification: Notification?
     
-    var mKeyboardOffset:CGFloat = 0
+    @objc public var mKeyboardOffset:CGFloat = 0
     /** To save keyboard size. */
     var _mKbSize = CGSize.zero
     private var         _kbSize:CGSize{
