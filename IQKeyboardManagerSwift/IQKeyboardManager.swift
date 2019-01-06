@@ -959,7 +959,7 @@ public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
             
             let newKeyboardDistanceFromTextField = (specialKeyboardDistanceFromTextField == kIQUseDefaultKeyboardDistance) ? keyboardDistanceFromTextField : specialKeyboardDistanceFromTextField
             var kbSize = _kbSize
-            kbSize.height += newKeyboardDistanceFromTextField
+            kbSize.height += newKeyboardDistanceFromTextField + textFieldView.customKeyboardDistanceFromTextFeild
 
             let navigationBarAreaHeight : CGFloat = UIApplication.shared.statusBarFrame.height + ( rootController.navigationController?.navigationBar.frame.height ?? 0)
             let layoutAreaHeight : CGFloat = rootController.view.layoutMargins.bottom

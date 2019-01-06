@@ -28,8 +28,12 @@ import UIKit
 Uses default keyboard distance for textField.
 */
 public let kIQUseDefaultKeyboardDistance = CGFloat.greatestFiniteMagnitude
-
+public let kIQCustomKeyboardDistance:CGFloat = 0
 private var kIQKeyboardDistanceFromTextField = "kIQKeyboardDistanceFromTextField"
+private var kIQCustomKeyboardDistanceFromTextFeild = "kIQCustomerKeyboardDistanceFromTextFeild"
+
+
+
 //private var kIQKeyboardEnableMode = "kIQKeyboardEnableMode"
 private var kIQKeyboardShouldResignOnTouchOutsideMode = "kIQKeyboardShouldResignOnTouchOutsideMode"
 private var kIQIgnoreSwitchingByNextPrevious = "kIQIgnoreSwitchingByNextPrevious"
@@ -39,6 +43,21 @@ UIView category for managing UITextField/UITextView
 */
 public extension UIView {
 
+    
+    @objc public var customKeyboardDistanceFromTextFeild:CGFloat{
+        get {
+            
+            if let aValue = objc_getAssociatedObject(self, &kIQCustomKeyboardDistanceFromTextFeild) as? CGFloat {
+                return aValue
+            } else {
+                return kIQCustomKeyboardDistance
+            }
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &kIQCustomKeyboardDistanceFromTextFeild, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     /**
      To set customized distance from keyboard for textField/textView. Can't be less than zero
      */
