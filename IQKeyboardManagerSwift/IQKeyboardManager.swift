@@ -1115,7 +1115,7 @@ public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
                                 
                                 self.showLog("Remaining Move: \(move)")
                                 
-                                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: shouldOffsetY + textFieldView.customKeyboardDistanceFromTextFeild)
+                                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: shouldOffsetY - textFieldView.customKeyboardDistanceFromTextFeild)
                             }) { (animated:Bool) -> Void in }
                         }
                         
